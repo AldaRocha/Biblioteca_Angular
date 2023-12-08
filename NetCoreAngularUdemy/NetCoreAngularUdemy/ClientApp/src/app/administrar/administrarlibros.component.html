@@ -1,0 +1,58 @@
+<div class="container">
+  <h1 class="text-center">
+    Administrar libros:
+  </h1>
+  <form [formGroup]="librosForm" (ngSubmit)="Enviar()">
+    <div class="form-group row">
+      <label for="ID" class="col-sm-2 col-form-label">
+        Libro a modificar:
+      </label>
+      <div class="col-sm-10">
+        <select id="ID" class="form-select" formControlName="idLibro">
+          <option [ngValue]="-1">Agregare un libro</option>
+          <option *ngFor="let pro of listaProductos" [value]="pro.id">{{pro.nombre}}</option>
+        </select>
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="Nombre" class="col-sm-2 col-form-label">
+        Nombre del libro:
+      </label>
+      <div class="col-sm-10">
+        <input id="Nombre" type="text" class="form-control" formControlName="nombre" />
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="Precio" class="col-sm-2 col-form-label">
+        Precio del libro:
+      </label>
+      <div class="col-sm-10">
+        <input id="Precio" type="number" class="form-control" formControlName="precio" />
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="Descripcion" class="col-sm-2 col-form-label">
+        Descripcion del libro:
+      </label>
+      <div class="col-sm-10">
+        <input id="Descripcion" type="text" class="form-control" formControlName="descripcion" />
+      </div>
+    </div>
+    <br />
+    <div class="form-group row">
+      <label for="PDF" class="col-sm-2 col-form-label">
+        PDF del libro:
+      </label>
+      <div class="col-sm-10">
+        <input id="PDF" type="file" class="form-control" formControlName="pdf" (change)="onFileSelected($event)" accept="application/pdf"/>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <button class="btn btn-primary" type="submit">Guardar</button>
+    </div>
+  </form>
+</div>
